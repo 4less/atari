@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block scripts %}
+<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block heading %}
+<div align="center">
+<form action = "http://localhost:5000/uploader" method = "POST" 
+    enctype = "multipart/form-data">
+    <input type = "file" name = "file" />
+    <input type = "submit"/>
+</form>
+</div>
+{% endblock %}
+
+{% block content %}
+<script>
+	// creating svg element
+	var dataset = {{ data | safe }};
+	console.log(dataset);
+	console.log("where was the data");
+	
+	var width = 800;
+	var height = 500;
+
+	categories = ["lulatsch", "drogo", "tüte", "krümel", "beisser"];
+	x1 = [1, 2, 3, 4, 5];
+	x2 = [5, 4, 3, 2, 1];
+
+
+	bubbleChart = Heatmap("#content", categories, x1, x2, width, height);
+	bubbleChart.init();
+</script>
+{% endblock %}
