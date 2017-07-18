@@ -3,6 +3,26 @@
 
 {% block scripts %}
 <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <style>
+      rect.bordered {
+        stroke: #E6E6E6;
+        stroke-width:4px;
+      }
+
+      text.mono {
+        font-size: 9pt;
+        font-family: Consolas, courier;
+        fill: #aaa;
+      }
+
+      text.axis-workweek {
+        fill: #000;
+      }
+
+      text.axis-worktime {
+        fill: #000;
+      }
+    </style>
 {% endblock %}
 
 {% block heading %}
@@ -17,6 +37,14 @@
 
 {% block content %}
 <script>
+    function get_data(key) {
+
+    }
+
+    function get_data(subdict, key) {
+
+    }
+
 	// creating svg element
 	var dataset = {{ data | safe }};
 	console.log(dataset);
@@ -25,9 +53,9 @@
 	var width = 800;
 	var height = 500;
 
-	categories = ["lulatsch", "drogo", "tüte", "krümel", "beisser"];
-	x1 = [1, 2, 3, 4, 5];
-	x2 = [5, 4, 3, 2, 1];
+	categories = ["lulatsch", "drogo", "tüte", "krümel", "beisser", "lulatsch", "drogo", "tüte", "krümel", "beisser", "1", "2"];
+	x1 = [1, 2, 3, 4, 5, 13, 15, 15, 31, 8, 12, 2];
+	x2 = [5, 4, 3, 2, 1, 15, 2, 21, 23, 30, 25, 10];
 
 
 	bubbleChart = Heatmap("#content", categories, x1, x2, width, height);

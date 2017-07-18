@@ -102,10 +102,19 @@ class DataLoader:
         children_dict = self.fill_data_dict(children_dict, subtree_root)
         children_list = self.get_childs_of_tree(subtree_list)
 
+        if len(subtree_list) == 1:
+            return
+
         for child in children_list:
             child_subtree_list = self.get_subtree(child)
-            if len(child_subtree_list) == 1:
-                return
+
+            for element in child_subtree_list:
+                print(element)
+
+            #input()
+
+            #if len(child_subtree_list) == 1:
+            #    return
             self.fill_subtree(children_dict, child_subtree_list, level_counter-1)
 
 
@@ -126,12 +135,14 @@ class DataLoader:
 
 
     def test_function(self):
-        for entry in self.tree:
-            print(self.access_taxonomy(entry))
+        #for entry in self.tree:
+        #    print(self.access_taxonomy(entry))
 
-        entry = self.get_entry('Regulation and Cell signaling')
 
-        child_entry = self.get_entry('cAMP signaling in bacteria')
+        #entry = self.get_entry('Regulation and Cell signaling')
+        entry = self.get_entry('d__Bacteria')
+
+        child_entry = self.get_entry('g__Clostridium')
 
 
         #print(entry)
@@ -140,15 +151,20 @@ class DataLoader:
         #print(self.is_child(child_entry, entry))
         #print(self.is_child(entry, child_entry))
 
+        children = self.get_childs_of_tree(self.get_subtree(child_entry))
+
         print("subtree################################################################################################")
         subtree_list = self.get_subtree(entry)
+
+
+
         #for entry in subtree_list:
         #    print(entry)
 
         subtree_childs = self.get_childs_of_tree(subtree_list)
 
-        for child in subtree_childs:
-            print(child)
+        #for child in subtree_childs:
+        #    print(child)
 
         indices = self.get_indices(subtree_childs)
 
@@ -165,6 +181,9 @@ class DataLoader:
         print(entry)
         leaves = self.get_leaves(entry)
 
+        for leaf in leaves:
+            print(leaf)
+
 
         leaf_indices = self.get_indices(leaves)
         leaf_data = [self.data[i] for i in leaf_indices]
@@ -173,15 +192,15 @@ class DataLoader:
         #for taxa, data in zip(leaves, leaf_data):
         #    print(taxa)
         #    print(data)
-        #    input()
 
 
-        print(self.get_data(entry))
+
+        #print(self.get_data(entry))
 
 
         print(" TEST DICT YO ############################################### ")
 
-        tree_dict = self.to_js_dict(level=4)
+        tree_dict = self.to_js_dict(level=500)
 
         pprint.pprint(tree_dict)
 
@@ -246,7 +265,9 @@ class DataLoader:
 if __name__ == '__main__':
     print("main")
 
-    dataloader = DataLoader("test.json")
+    #dataloader = DataLoader("test.json")
+
+    dataloader = DataLoader("taxa2.json")
 
     dataloader.test_function()
 
