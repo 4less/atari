@@ -93,34 +93,34 @@ class DataLoader:
         self.fill_subtree(tree_dict, self.tree, level)
         return tree_dict
 
-    def to_jonas_dict(self, level=3):
+    def to_jonas_dict(self, level=3, index=0):
         tree_dict = {}
 
         tree_dict['name'] = self.access_taxonomy(self.tree[0])[0]
 
 
-        self.fill_jonas_tree(tree_dict, level)
+        self.fill_jonas_tree(tree_dict, level, index)
 
         return tree_dict
 
 
-    def fill_jonas_tree(self, children_dict, level):
+    def fill_jonas_tree(self, children_dict, level, index):
         if level == 0:
             print()
 
         leaf = False;
         if level == 0:
             leaf = True;
-        children_array = self.fill_data(children_dict, leaf)
+        children_array = self.fill_data(children_dict, index, leaf)
 
         if not leaf and children_array is not None:
             for child_dict in children_array:
-                self.fill_jonas_tree(child_dict, level-1)
+                self.fill_jonas_tree(child_dict, level-1, index)
 
 
 
 
-    def fill_data(self, children_dict, leaf=False):
+    def fill_data(self, children_dict, index, leaf=False):
         entry = self.get_entry(children_dict['name'])
         print("fill data for: " + children_dict['name'] + "##############")
         print(entry)
@@ -129,7 +129,7 @@ class DataLoader:
         children_list = self.get_childs_of_tree(self.get_subtree(entry))
 
         if leaf or len(children_list) == 0:
-            children_dict['size'] = self.get_data(entry)
+            children_dict['size'] = self.get_data(entry)[index]
             return None;
         else:
             children_dict['children'] = []
