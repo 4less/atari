@@ -21,8 +21,8 @@ def makeNdatasets(N=5):
 def import_asari():
     dir_path = os.path.dirname(os.path.realpath(__file__))
     print(dir_path)
-    dataloader = DataLoader(dir_path + "/static/test.json")
-    dict = dataloader.to_js_dict(level=4)
+    dataloader = DataLoader(dir_path + "/static/taxa2.json")
+    dict = dataloader.to_js_dict(level=100)
     pprint.pprint(dict)
     return dict
 

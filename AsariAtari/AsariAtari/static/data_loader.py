@@ -93,6 +93,53 @@ class DataLoader:
         self.fill_subtree(tree_dict, self.tree, level)
         return tree_dict
 
+    def to_jonas_dict(self, level=3):
+        tree_dict = {}
+
+        tree_dict['name'] = self.access_taxonomy(self.tree[0])[0]
+
+
+        self.fill_jonas_tree(tree_dict, level)
+
+        return tree_dict
+
+
+    def fill_jonas_tree(self, children_dict, level):
+        if level == 0:
+            print()
+
+        leaf = False;
+        if level == 0:
+            leaf = True;
+        children_array = self.fill_data(children_dict, leaf)
+
+        if not leaf and children_array is not None:
+            for child_dict in children_array:
+                self.fill_jonas_tree(child_dict, level-1)
+
+
+
+
+    def fill_data(self, children_dict, leaf=False):
+        entry = self.get_entry(children_dict['name'])
+        print("fill data for: " + children_dict['name'] + "##############")
+        print(entry)
+        input()
+
+        children_list = self.get_childs_of_tree(self.get_subtree(entry))
+
+        if leaf or len(children_list) == 0:
+            children_dict['size'] = self.get_data(entry)
+            return None;
+        else:
+            children_dict['children'] = []
+            for child in children_list:
+                child_dict = {}
+                child_dict['name'] = self.access_taxonomy(child)[-1]
+                children_dict['children'].append(child_dict)
+            return children_dict['children']
+
+
 
     def fill_subtree(self, children_dict, subtree_list, level_counter):
         if level_counter == 0:
@@ -203,6 +250,11 @@ class DataLoader:
         tree_dict = self.to_js_dict(level=500)
 
         pprint.pprint(tree_dict)
+
+
+        tree_dict2 = self.to_jonas_dict(level=3)
+
+        pprint.pprint(tree_dict2)
 
 
 

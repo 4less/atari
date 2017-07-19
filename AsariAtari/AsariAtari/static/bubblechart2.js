@@ -1,5 +1,9 @@
+
+
 function Heatmap (myDivId, categories, x1, x2, width, height) {
 	var returnDictionary = {};
+
+	parent = "root";
 
 	returnDictionary["init"] = function() {
 		var svg = d3.select(myDivId).append("svg");
@@ -52,7 +56,7 @@ function Heatmap (myDivId, categories, x1, x2, width, height) {
 			.domain([d3.min(yData), d3.max(yData)]);*/
 		
 		// create group that contains all elements of the chart
-		var chartGroup = svg.append("g");
+		chartGroup = svg.append("g");
 
           	// move chartgroup to its position in the svg.
 		chartGroup.attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
@@ -61,16 +65,46 @@ function Heatmap (myDivId, categories, x1, x2, width, height) {
 	};
 
 	returnDictionary["update"] = function(newData) {
-		
+		var gridSize = Math.floor(chartWidth / newData[0].length);
+		rectGroup = fillHeatmap(chartGroup, newData, colors, x1Scale, "x2Scale", gridSize);
 	};
 
 	returnDictionary["doWhenClicked"] = function() {
-
+		alice_rects.on("click", function() {
+			clickedItem = d3.select(this);
+			console.log(clickedItem.data()[0][0]);
+		});
 	};
 
 	returnDictionary["doOnMouseOver"] = function() {
+		console.log("enable mouseover");
+		alice_rects.on("mouseover", function() {
+			console.log("mouseOver");
+			d3.select(this)
+				.attr("stroke", "black");
 
-	}
+		});
+		alice_rects.on("mouseout", function() {
+			console.log("mouseOver");
+			d3.select(this)
+				.attr("stroke", d3.rgb("#E6E6E6"));
+
+		});
+
+		bob_rects.on("mouseover", function() {
+			console.log("mouseOver");
+			d3.select(this)
+				.attr("stroke", "black");
+
+		});
+		bob_rects.on("mouseout", function() {
+			console.log("mouseOver");
+			d3.select(this)
+				.attr("stroke", d3.rgb("#E6E6E6"));
+
+		});
+
+	};
 
 	return returnDictionary;
 }
@@ -81,19 +115,24 @@ function fillHeatmap(chartGroup, data, categoryColors, x1Scale, x2Scale, gridSiz
 		.enter()
 
 	
-	
+	var padding = 1;
+
+	highlightColor = "black";
+	nohighlightColor = d3.rgb("#E6E6E6");
 
 
 	alice_rects = rectGroup.append("rect");
 
 	alice_rects
 				.attr("x", function(data, index) {
-						return index*gridSize; 
+						return index*gridSize+padding; 
 					})
-				.attr("y", 0)
-				.attr("width", gridSize)
-				.attr("height", gridSize)
+				.attr("y", padding)
+				.attr("width", gridSize-2*padding)
+				.attr("height", gridSize-2*padding)
 				.attr("class", "hour bordered")
+				.attr("stroke", nohighlightColor)
+				.attr("stroke-width", padding*2)
 				.attr("rx", 6)
 				.attr("ry", 6)
 				.attr("fill", function(data, index) {
@@ -111,12 +150,14 @@ function fillHeatmap(chartGroup, data, categoryColors, x1Scale, x2Scale, gridSiz
 
 	bob_rects
 				.attr("x", function(data, index) {
-						return index*gridSize; 
+						return index*gridSize+padding; 
 					})
-				.attr("y", gridSize)
-				.attr("width", gridSize)
-				.attr("height", gridSize)
+				.attr("y", gridSize+padding)
+				.attr("width", gridSize-2*padding)
+				.attr("height", gridSize-2*padding)
 				.attr("class", "hour bordered")
+				.attr("stroke", nohighlightColor)
+				.attr("stroke-width", padding*2)
 				.attr("rx", 6)
 				.attr("ry", 6)
 				.attr("fill", function(data, index) {
