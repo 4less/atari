@@ -254,7 +254,8 @@ class DataLoader:
 
         tree_dict2 = self.to_jonas_dict(level=3)
 
-        pprint.pprint(tree_dict2)
+        print(json.dumps(tree_dict2))
+        #pprint.pprint(tree_dict2)
 
 
 
