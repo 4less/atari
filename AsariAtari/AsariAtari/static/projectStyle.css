@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
+}
+.col-1 {
+    background: darkblue;
+    flex: 1;
+}
+.col-2 {
+    display: flex;
+    flex-direction: column;
+    flex: 7;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+}
+.content > article {
+    flex: 4;
+    min-height: 80vh;
+}
+header, footer {
+    background: cornflowerblue;
+    height: 10vh;
+}
+header, footer, article, nav {
+    padding: 1em;
+}
+
+h1 {
+    font-family: Arial, Helvetica;
+    color: darkblue;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+h2 {
+    font-family: Arial, Helvetica;
+    color: dodgerblue;
+    text-align: left;
+    margin-left: 5px;
+}
+
+h3 {
+    font-family: Arial, Helvetica;
+    margin-left: 5px;
+    color: whitesmoke;
+}
+
+h4 {
+    font-family: Arial, Helvetica;
+    margin-left: 5px;
+    color: gold;
+}
+
+p {
+    font-family: Arial, Helvetica;
+    font-variant: small-caps;
+    margin-left: 40px;
+}
+
+div {
+    font-family: Arial, Helvetica;
+    font-size: 1em;
+    margin-left: 40px;
+}
+
+label {
+    color: white;
+    font-size: 20px;
+}
+
+/* Felix Line chart */
+
+/* 13. Basic Styling with CSS */
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+    fill: none;
+    stroke-width: 3;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 100px;
+    height: 34px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightgray;
+    border: 0px;
+    border-radius: 4px;
+    pointer-events: none;
+}
