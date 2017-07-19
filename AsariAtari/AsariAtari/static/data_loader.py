@@ -1,6 +1,7 @@
 import json
 from operator import add
 import pprint
+import math
 
 class DataLoader:
     json_dict = None
@@ -124,7 +125,7 @@ class DataLoader:
         entry = self.get_entry(children_dict['name'])
         print("fill data for: " + children_dict['name'] + "##############")
         print(entry)
-        input()
+        #input()
 
         children_list = self.get_childs_of_tree(self.get_subtree(entry))
 
@@ -247,14 +248,24 @@ class DataLoader:
 
         print(" TEST DICT YO ############################################### ")
 
-        tree_dict = self.to_js_dict(level=500)
+        #tree_dict = self.to_js_dict(level=500)
 
-        pprint.pprint(tree_dict)
+        #pprint.pprint(tree_dict)
+
+        cat = ['alice', 'bob']
+        timepoints = [0,1,3,6,8,34]
+        for i in range(0, 12):
+            person_index = math.floor(i/6)
+
+            tree_dict = self.to_jonas_dict(level=10, index=i)
+            filename = cat[person_index] + str(timepoints[i % 6])
+            with open(filename, 'w') as outfile:
+                outfile.write(json.dumps(tree_dict))
+
+        #tree_dict2 = self.to_jonas_dict(level=10)
 
 
-        tree_dict2 = self.to_jonas_dict(level=3)
-
-        print(json.dumps(tree_dict2))
+        #print(json.dumps(tree_dict2))
         #pprint.pprint(tree_dict2)
 
 
