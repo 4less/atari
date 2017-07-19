@@ -111,7 +111,11 @@ function Heatmap (myDivId, categories, x1, x2, width, height) {
 
 function fillHeatmap(chartGroup, data, categoryColors, x1Scale, x2Scale, gridSize) {
 	var rectGroup = chartGroup.selectAll(".rect")
-		.data(data)
+		.data(data.filter(function(d) {
+			console.log(d[1] + " - " + d[2]);
+			console.log(d[1] != 0 || d[2] != 0);
+			return d[1] != 0 || d[2] != 0;
+		}))
 		.enter()
 
 	
