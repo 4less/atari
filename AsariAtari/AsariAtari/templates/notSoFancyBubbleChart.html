@@ -12,7 +12,7 @@
       text.mono {
         font-size: 9pt;
         font-family: Consolas, courier;
-        fill: #aaa;
+        fill: #555;
       }
 
       text.axis-workweek {
@@ -48,11 +48,11 @@
         if (level == undefined)
             level = 0;
 
-        console.log("subdict, path, length");
-        console.log(subdict);
+        //console.log("subdict, path, length");
+        //console.log(subdict);
 
         var root = subdict['path'];
-        console.log(root);
+        //console.log(root);
 
         var len = root.length -1;
         //console.log(len);
@@ -63,8 +63,8 @@
             var children = subdict['children'];
             for (var child in children) {
                 var childdict = children[child];
-                console.log("child: " + child + " with dict:");
-                console.log(childdict);
+                //console.log("child: " + child + " with dict:");
+                //console.log(childdict);
 
                 var solution = get_data(children[child], key, level+1);
                 if (solution != undefined)
@@ -89,9 +89,9 @@
             alice.push(alice_value);
             bob.push(bob_value);
         }
-        console.log(categories);
-        console.log(alice);
-        console.log(bob);
+        //console.log(categories);
+        //console.log(alice);
+        //console.log(bob);
 
         return [categories, alice, bob];
     }
@@ -99,27 +99,25 @@
 	// creating svg element
 	var dataset = {{ data | safe }};
 
-	var subtree = get_data(dataset[Object.keys(dataset)[0]], 'o__Bifidobacteriales');
+	//var subtree = get_data(dataset[Object.keys(dataset)[0]], 'o__Bifidobacteriales');
 
-	var array = get_arrays_for_entry(dataset, 'g__Clostridium', 0);
+	//var array = get_arrays_for_entry(dataset, 'root', 0);
 
-	console.log("array:");
+	//console.log("array:");
 	//console.log(array);
 
-    console.log("subtree");
-    console.log(subtree);
+    //console.log("subtree");
+    //console.log(subtree);
 
 	var width = 800;
 	var height = 500;
 
-	categories = ["lulatsch", "drogo", "tüte", "krümel", "beisser", "lulatsch", "drogo", "tüte", "krümel", "beisser", "1", "2"];
-	x1 = [1, 2, 3, 4, 5, 13, 15, 15, 31, 8, 12, 2];
-	x2 = [5, 4, 3, 2, 1, 15, 2, 21, 23, 30, 25, 10];
 
-
-	bubbleChart = Heatmap("#content", array[0], array[1], array[2], width, height);
+	bubbleChart = Heatmap("#content", dataset, width, height);
 	bubbleChart.init();
 	bubbleChart.doOnMouseOver();
 	bubbleChart.doWhenClicked();
+
+	//bubbleChart.update('o__Bifidobacteriales');
 </script>
 {% endblock %}

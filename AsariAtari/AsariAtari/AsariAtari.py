@@ -23,8 +23,14 @@ def import_asari():
     print(dir_path)
     dataloader = DataLoader(dir_path + "/static/taxa2.json")
     dict = dataloader.to_js_dict(level=100)
-    pprint.pprint(dict)
     return dict
+
+def import_json(json_filepath):
+    with open(json_filepath, "r") as json_file:
+        data = json.load(json_file)
+
+        return data
+    return ""
 
 @app.route('/')
 def index():
@@ -33,6 +39,7 @@ def index():
 
 @app.route('/bubbleChart')
 def bubbleChart():
+
     return render_template('bubbleChartScalesAxesAnimationInteractivity.html',
                            data=json.dumps(makeNdatasets()))
 
@@ -50,7 +57,12 @@ def network():
 
 @app.route('/bubbleChart2')
 def bubbleChart2():
-    return render_template('notSoFancyBubbleChart.html', data=json.dumps(import_asari()))
+    #return render_template('notSoFancyBubbleChart.html', data=json.dumps(import_asari()))
+    print(os.getcwd())
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    file = dir_path + "/static/seed.json"
+    return render_template('notSoFancyBubbleChart.html', data=json.dumps(import_json(file)))
 
 if __name__ == '__main__':
     app.run()

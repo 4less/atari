@@ -331,9 +331,10 @@ if __name__ == '__main__':
 
     #dataloader = DataLoader("test.json")
 
-    dataloader = DataLoader("taxa2.json")
-
-    dataloader.test_function()
+    dataloader = DataLoader("seed_from_megan.json")
+    dict = dataloader.to_js_dict(level=100)
+    with open("seed.json", 'w') as outfile:
+        json.dump(dict, outfile)
 
 
 # json_dict = json_to_dict("test.json")
