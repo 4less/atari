@@ -13,7 +13,7 @@ var indata = {
         115652, 113388]
 };
 
-    var key = Object.keys(indata);
+    var key = Object.keys(indata) ;
 
     var marginBar = {top: 20, right: 370, bottom: 30, left: 80};
     width_bar = 650 - marginBar.left - marginBar.right;

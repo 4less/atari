@@ -108,7 +108,7 @@ d3.csv('data.csv', function (error, input) {
         })
         .attr("fill", function (d) {
             return colorScale(d.value0);
-        });
+        }) ;
 
 
     d3.selectAll("#cell").on('mouseout', function () {

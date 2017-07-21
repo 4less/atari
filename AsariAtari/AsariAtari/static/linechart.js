@@ -10,7 +10,7 @@ function div_ali_bob(listi){
 	
 	//put both lists together and let them print
 	var together = [];
-	together.push(alice, bob);
+	together.push(alice, bob) ;
 	
 	return together;
 }
