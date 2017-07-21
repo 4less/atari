@@ -1,5 +1,6 @@
 var test = [4748.0, 2310.0, 4862.0, 2293.0, 5164.0, 2365.0, 4239.0, 2260.0, 3643.0, 4439.0, 5313.0, 5057.0];
 
+
 function div_ali_bob(listi){
 	
 	//put alice and bob in the correct order
@@ -10,7 +11,7 @@ function div_ali_bob(listi){
 	
 	//put both lists together and let them print
 	var together = [];
-	together.push(alice, bob) ;
+	together.push(alice, bob);
 	
 	return together;
 }
@@ -200,9 +201,6 @@ function div_ali_bob(listi){
 			.transition()
 			.duration(500)
             .attr("r", 5);
-        div.transition()
-			.duration(500)
-			.style("opacity", 0);
     });
 	//get label value
 	circle.on('click',	function(){
