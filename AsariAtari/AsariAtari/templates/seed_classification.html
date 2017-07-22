@@ -1,49 +1,56 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styler.css') }}">
+<style>
+  text.path {
+    font-size: 20pt;
+    font-family: Consolas, courier;
+    fill: #333;
+  }
 
-{% extends "base.html" %}
+  text.mono {
+    /*font-size: 9pt;*/
+    font-family: Consolas, courier;
+    fill: #555;
+  }
 
-{% block scripts %}
-<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-    <style>
-      /*rect.bordered {
-        stroke: #E6E6E6;
-        stroke-width:4px;
-      }*/
+  text.axis-workweek {
+    fill: #000;
+  }
 
-      text.mono {
-        font-size: 9pt;
-        font-family: Consolas, courier;
-        fill: #555;
-      }
+  text.axis-worktime {
+    fill: #000;
+  }
+</style>
 
-      text.axis-workweek {
-        fill: #000;
-      }
 
-      text.axis-worktime {
-        fill: #000;
-      }
-    </style>
-{% endblock %}
-
-{% block heading %}
-<div align="center">
-<form action = "http://localhost:5000/uploader" method = "POST" 
-    enctype = "multipart/form-data">
-    <input type = "file" name = "file" />
-    <input type = "submit"/>
-</form>
-</div>
-{% endblock %}
-
+{% extends "index.html" %}
 {% block content %}
-<script>
-    function generateChar(char, count) {
-        s = "";
-        for (var i = 0; i < count; i++)
-            s = s.concat(char);
-        return s;
-    }
 
+<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="{{ url_for('static', filename='bubblechart2.js') }}"></script>
+<div class="buttonContainer">
+  <div id="aliceButton" class="button_base b03_skewed_slide_in">
+    <div>Alice</div>
+    <div></div>
+    <div>Alice</div>
+  </div>
+  <div id="bobButton" class="button_base b03_skewed_slide_in">
+    <div>Bob</div>
+    <div></div>
+    <div>Bob</div>
+  </div>
+</div>
+<!-- <input type="button" id="aliceButton" value="Alice">
+<input type="button" id="bobButton" value="Bob"> -->
+
+<!-- Use any element to open the sidenav -->
+<div class="svgWrapper">
+  <svg id="containerSvg" width="100%" height="960"></svg>
+</div>
+
+
+<script>
     function get_data(subdict, key, level) {
         if (level == undefined)
             level = 0;
@@ -98,11 +105,12 @@
 
 	// creating svg element
 	var dataset = {{ data | safe }};
-	var width = 800;
-	var height = 500;
+	var width = 1900;
+	var height = 700;
 
+	console.log(dataset)
 
-	bubbleChart = Heatmap("#content", dataset, width, height);
+	bubbleChart = Heatmap("#content", dataset);
 	bubbleChart.init();
 	bubbleChart.doOnMouseOver();
 	bubbleChart.doWhenClicked();

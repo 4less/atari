@@ -127,6 +127,7 @@ class DataLoader:
         print(entry)
         #input()
 
+
         children_list = self.get_childs_of_tree(self.get_subtree(entry))
 
         if leaf or len(children_list) == 0:
@@ -135,6 +136,9 @@ class DataLoader:
         else:
             children_dict['children'] = []
             for child in children_list:
+
+
+
                 child_dict = {}
                 child_dict['name'] = self.access_taxonomy(child)[-1]
                 children_dict['children'].append(child_dict)
@@ -157,7 +161,11 @@ class DataLoader:
             child_subtree_list = self.get_subtree(child)
 
             for element in child_subtree_list:
-                print(element)
+                if self.access_taxonomy(element)[-1] == "Proteorhodopsin":
+                    print(element)
+                    print(self.get_data(element))
+                    input()
+
 
             #input()
 
@@ -278,7 +286,13 @@ class DataLoader:
 
         for index in indices:
             data = self.data[index]
-
+            if len(data) != 12:
+                print("suspicious")
+                print(data)
+            if data == []:
+                print(data)
+                data = [0.0]*12
+                print(data)
             if vector == None:
                 vector = data
             else:
@@ -333,7 +347,7 @@ if __name__ == '__main__':
 
     dataloader = DataLoader("seed_from_megan.json")
     dict = dataloader.to_js_dict(level=100)
-    with open("seed.json", 'w') as outfile:
+    with open("seed2.json", 'w') as outfile:
         json.dump(dict, outfile)
 
 
