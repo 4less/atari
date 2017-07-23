@@ -18,8 +18,6 @@ function linechart (svg, dataset, width, height, x, y) {
 
     var data = [[12,23,24,12,23,12],[23,24,35,23,1,2]];
 
-
-
     //get time points
     var time_points = [0, 1, 2, 3, 4, 5];
     var time_stands = ["0", "1", "3", "6", "8", "34"];
@@ -241,7 +239,6 @@ function linechart (svg, dataset, width, height, x, y) {
 
     //update
     returnDictionary["update"] = function (entry) {
-        {
 
             var data = get_arrays_for_time_series(dataset, entry);
 
@@ -317,6 +314,8 @@ function linechart (svg, dataset, width, height, x, y) {
                     .attr("r", 5);
             });
         }
-    }
+
+
+    return returnDictionary;
 }
 
