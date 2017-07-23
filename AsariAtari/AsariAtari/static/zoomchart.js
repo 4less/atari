@@ -17,7 +17,7 @@ function doMyPlot(dataSet) {
         svg = d3.select("svg"),
             margin = 20,
             diameter = 900,
-            g = svg.append("g").attr("transform", "translate(" + 1450 / 2 + "," + diameter / 2 + ")");
+            g = svg.append("g").attr("transform", "translate(" + 1250 / 2 + "," + diameter / 2 + ")");
 
         g.attr("id", "firstG");
 
@@ -98,7 +98,7 @@ function doMyPlot(dataSet) {
           svg = d3.select("svg"),
               margin = 20,
               diameter = 900,
-              g = svg.append("g").attr("transform", "translate(" + 1450 / 2 + "," + diameter / 2 + ")");
+              g = svg.append("g").attr("transform", "translate(" + 1250 / 2 + "," + diameter / 2 + ")");
 
           g.attr("id", "firstG");
 
@@ -177,7 +177,7 @@ function doSlider(svg, gElement, ticks) {
 
           var slider = svg.append("g")
               .attr("class", "slider")
-              .attr("transform", "translate(" + 300 + "," + 960 / 1.05 + ")");
+              .attr("transform", "translate(" + 200 + "," + 960 / 1.05 + ")");
 
           slider.append("line")
                 .attr("class", "track")
