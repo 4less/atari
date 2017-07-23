@@ -148,17 +148,17 @@ function linechart (svg, dataset, width, height, x, y) {
                 .attr("d", line) // 11. Calls the line generator
                 .attr("stroke", colors[index])
 
-            var bubble = svg.selectAll("#linechart")
+            var bubble = panel.selectAll("#linechart")
                 .data(data[index])
                 .enter();
 
-            svg.append("text")
+            panel.append("text")
                 .attr("x", 800 - margin.left - 30)
                 .attr("y", margin.top + 8 + 20 * index)
                 .attr("dy", ".35em")
                 .text(names[index]);
 
-            svg.append("rect")
+            panel.append("rect")
                 .attr("x", 800 - margin.left - 50)
                 .attr("y", margin.top + 20 * index)
                 .attr("width", 18)
@@ -283,7 +283,7 @@ function linechart (svg, dataset, width, height, x, y) {
                     .attr("stroke", colors[index]);
 
 
-                svg.selectAll("#circle" + names[index]) // Uses the enter().append() method
+                panel.selectAll("#circle" + names[index]) // Uses the enter().append() method
                     .data(data[index])
                     .transition().duration(500)
                     .attr("class", "dot") // Assign a class for styling
