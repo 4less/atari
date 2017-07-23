@@ -153,13 +153,13 @@ function linechart (svg, dataset, width, height, x, y) {
                 .enter();
 
             panel.append("text")
-                .attr("x", 800 - margin.left - 30)
+                .attr("x", 800 - myChartWidth - 30)
                 .attr("y", margin.top + 8 + 20 * index)
                 .attr("dy", ".35em")
                 .text(names[index]);
 
             panel.append("rect")
-                .attr("x", 800 - margin.left - 50)
+                .attr("x", 800 - myChartWidth - 50)
                 .attr("y", margin.top + 20 * index)
                 .attr("width", 18)
                 .attr("height", 18)
@@ -195,34 +195,7 @@ function linechart (svg, dataset, width, height, x, y) {
                 .duration(500)
                 .attr("r", 5);
         });
-        //get label value
-        circle.on('click', function () {
-            var coords = Math.round(xScale.invert(d3.mouse(this)[0]));
-            d3.select("#selected")
-                .attr("x1", xScale(coords) + margin.left)
-                .attr("x2", xScale(coords) + margin.left)
 
-            console.log(coords);
-            if (coords == 2) {
-                dayLabel = 3;
-            }
-            else if (coords == 3) {
-                dayLabel = 6;
-            }
-            else if (coords == 4) {
-                dayLabel = 8;
-            }
-            else if (coords == 5) {
-                dayLabel = 34;
-            }
-            else {
-                dayLabel = coords;
-            }
-            document.getElementById('time-point').innerHTML = dayLabel;
-
-            updateBars(dayLabel);
-            change_color();
-        });
     }
 
     //update
@@ -277,10 +250,10 @@ function linechart (svg, dataset, width, height, x, y) {
                     .transition().duration(500)
                     .attr("class", "dot") // Assign a class for styling
                     .attr("cx", function (d, i) {
-                        return xScale(i) + margin.left;
+                        return xScale(i);
                     })
                     .attr("cy", function (d) {
-                        return yScale(d) + margin.top;
+                        return yScale(d);
                     })
                     .attr("r", 5)
                     .style("fill", linechartColors[index]);
