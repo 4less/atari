@@ -12,7 +12,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/AsariAtari$AsariAtari.coverage" NAME="AsariAtari Coverage Results" MODIFIED="1500566071359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/AsariAtari$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1500665215862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/static" />
-    <SUITE FILE_PATH="coverage/AsariAtari$main.coverage" NAME="main Coverage Results" MODIFIED="1500816462355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AsariAtari$main.coverage" NAME="main Coverage Results" MODIFIED="1500821465889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -74,8 +74,8 @@
       <file leaf-file-name="heatmap_chart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/heatmap_chart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="82" column="32" lean-forward="false" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+            <state relative-caret-position="308">
+              <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -86,7 +86,27 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2128">
               <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-              <folding />
+              <folding>
+                <marker date="1500821117423" expanded="true" signature="826:9194" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="1072:6369" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="3809:4140" ph="/*...*/" />
+                <marker date="1500821117423" expanded="true" signature="4333:4371" ph="//..." />
+                <marker date="1500821117423" expanded="true" signature="4420:5909" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="5655:5712" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="5755:5812" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="6052:6184" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="6229:6360" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="6438:9161" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="6636:6697" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="6703:6764" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="7218:7393" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="7445:7535" ph="//..." />
+                <marker date="1500821117423" expanded="true" signature="7589:8638" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="8352:8417" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="8464:8529" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="8797:8949" ph="{...}" />
+                <marker date="1500821117423" expanded="true" signature="8998:9149" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -484,14 +504,14 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329375" sideWeight="0.50584793" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47" sideWeight="0.31161237" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47" sideWeight="0.6925647" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47" sideWeight="0.68838763" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298005" sideWeight="0.49875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23558897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329375" sideWeight="0.49415204" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329375" sideWeight="0.49415204" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39962593" sideWeight="0.49875" order="3" side_tool="false" content_ui="tabs" />
@@ -936,6 +956,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/linechart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2128">
+          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+          <folding>
+            <marker date="1500821117423" expanded="true" signature="826:9194" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="1072:6369" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="3809:4140" ph="/*...*/" />
+            <marker date="1500821117423" expanded="true" signature="4333:4371" ph="//..." />
+            <marker date="1500821117423" expanded="true" signature="4420:5909" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="5655:5712" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="5755:5812" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="6052:6184" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="6229:6360" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="6438:9161" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="6636:6697" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="6703:6764" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="7218:7393" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="7445:7535" ph="//..." />
+            <marker date="1500821117423" expanded="true" signature="7589:8638" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="8352:8417" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="8464:8529" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="8797:8949" ph="{...}" />
+            <marker date="1500821117423" expanded="true" signature="8998:9149" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/seed_classification.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -944,18 +992,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/linechart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/heatmap_chart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="82" column="32" lean-forward="false" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
+        <state relative-caret-position="308">
+          <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
           <folding />
         </state>
       </provider>
