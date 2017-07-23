@@ -23,7 +23,8 @@ function getTimePoints(dict, entry) {
 	subtree = get_data(dict[Object.keys(dict)[0]], entry);
 	alice = subtree['read_count'].slice(0, 6);
 	bob = subtree['read_count'].slice(6,12);
-	return [entry, alice, bob];
+	console.log([alice, bob]);
+	return [alice, bob];
 }
 
 function get_arrays_for_entry(dict, entry, index, node_only) {
@@ -131,7 +132,7 @@ function Heatmap (myDivId, dataset) {
 
 
 		/* INIT LINECHART */
-		linechartDictionary = linechart(svg, dataset, chartWidth,chartHeight, 0, chartHeight);
+		linechartDictionary = linechart(svg, dataset, heatmapWidth,chartHeight, margin.left, chartHeight);
 		linechartDictionary['init']();
 
 		var data = d3.zip(categories, x1, x2);
@@ -270,6 +271,9 @@ function Heatmap (myDivId, dataset) {
 				parent = clickedItem.data()[0][0];
 				pathText.text(pathString(pathText, stack.concat([parent]), heatmapWidth));
                 returnDictionary["update"](parent, index);
+                console.log(getTimePoints(dataset, parent));
+                linechartDictionary['update'](getTimePoints(dataset, parent));
+
             }
 		});
 
@@ -598,12 +602,6 @@ function fillHeatmap(chartGroup, data, categoryColors, colorScale) {
 	return rectGroup;
 }
 
-function getTimePoints(dict, entry) {
-	subtree = get_data(dict[Object.keys(dict)[0]], entry);
-	alice = subtree['read_count'].slice(0, 6);
-	bob = subtree['read_count'].slice(6,12);
-	return [entry, alice, bob];
-}
 
 function sharedStart(array){
 	var A= array.concat().sort(),

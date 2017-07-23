@@ -16,7 +16,7 @@ function linechart (svg, dataset, width, height, x, y) {
 
     var returnDictionary = {};
 
-    var data = [[12,23,24,12,23,12],[23,24,35,23,1,2]];
+    var data = [[0,0,0,0,0,0],[0,0,0,0,0,0]];
 
     //get time points
     var time_points = [0, 1, 2, 3, 4, 5];
@@ -30,16 +30,16 @@ function linechart (svg, dataset, width, height, x, y) {
         var mySvgHeight = height;
         var margin = {top: 50, right: 25, bottom: 100, left: 35};
         var myChartWidth = mySvgWidth - margin.left - margin.right;
-        var myChartHeight = mySvgHeight - margin.top - margin.bottom;
+        myChartHeight = mySvgHeight - margin.top - margin.bottom;
 
 
         //project it in form of a panel
-        var panel = svg.append("g")
+        panel = svg.append("g")
             .attr("transform", "translate(" + (margin.left + x) + "," + (margin.top + y) + ")");
 
         //get the axis ready
         //x-Axis
-        var xScale = d3.scaleLinear()
+        xScale = d3.scaleLinear()
             .range([margin.right, myChartWidth])
             .domain([0, d3.max(time_points)]);
 
@@ -78,7 +78,7 @@ function linechart (svg, dataset, width, height, x, y) {
             .attr('dx', '-.5em');
 
         // d3's line generator
-        var line = d3.line()
+        line = d3.line()
             .x(function (d) {
                 return xScale(d.time_point);
             }) // set the x values for the line generator
@@ -132,9 +132,9 @@ function linechart (svg, dataset, width, height, x, y) {
 
         //legend for identifying Alice and Bob
 
-        //names and colors for each line
-        var names = ["Alice", "Bob"];
-        var colors = ["crimson", "#6495ED"];
+        //names and linechartColors for each line
+        names = ["Alice", "Bob"];
+        linechartColors = ["crimson", "#6495ED"];
 
         //print them
         //+ print circles
@@ -146,7 +146,7 @@ function linechart (svg, dataset, width, height, x, y) {
                 .datum(arr[index]) // 10. Binds data to the line
                 .attr("class", "line") // Assign a class for styling
                 .attr("d", line) // 11. Calls the line generator
-                .attr("stroke", colors[index])
+                .attr("stroke", linechartColors[index])
 
             var bubble = panel.selectAll("#linechart")
                 .data(data[index])
@@ -163,7 +163,7 @@ function linechart (svg, dataset, width, height, x, y) {
                 .attr("y", margin.top + 20 * index)
                 .attr("width", 18)
                 .attr("height", 18)
-                .style("fill", colors[index]);
+                .style("fill", linechartColors[index]);
 
 
             bubble.append("circle") // Uses the enter().append() method
@@ -176,7 +176,7 @@ function linechart (svg, dataset, width, height, x, y) {
                     return yScale(d);
                 })
                 .attr("r", 5)
-                .style("fill", colors[index]);
+                .style("fill", linechartColors[index]);
         }
         ;
 
@@ -226,9 +226,10 @@ function linechart (svg, dataset, width, height, x, y) {
     }
 
     //update
-    returnDictionary["update"] = function (entry) {
+    returnDictionary["update"] = function (dataArray) {
 
-            var data = get_arrays_for_time_series(dataset, entry);
+            //var data = get_arrays_for_time_series(dataset, entry);
+            data = dataArray;
 
             //get highest value of the data
             if (d3.max(data[0]) > d3.max(data[1])) {
@@ -268,7 +269,7 @@ function linechart (svg, dataset, width, height, x, y) {
                     .transition().duration(500)
                     .attr("class", "line") // Assign a class for styling
                     .attr("d", line) // 11. Calls the line generator
-                    .attr("stroke", colors[index]);
+                    .attr("stroke", linechartColors[index]);
 
 
                 panel.selectAll("#circle" + names[index]) // Uses the enter().append() method
@@ -282,7 +283,7 @@ function linechart (svg, dataset, width, height, x, y) {
                         return yScale(d) + margin.top;
                     })
                     .attr("r", 5)
-                    .style("fill", colors[index]);
+                    .style("fill", linechartColors[index]);
             }
             ;
 
