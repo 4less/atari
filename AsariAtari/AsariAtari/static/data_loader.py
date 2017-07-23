@@ -345,9 +345,9 @@ if __name__ == '__main__':
 
     #dataloader = DataLoader("test.json")
 
-    dataloader = DataLoader("seed_from_megan.json")
+    dataloader = DataLoader("kegg_from_megan.json")
     dict = dataloader.to_js_dict(level=100)
-    with open("seed2.json", 'w') as outfile:
+    with open("kegg.json", 'w') as outfile:
         json.dump(dict, outfile)
 
 

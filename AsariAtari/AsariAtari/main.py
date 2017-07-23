@@ -45,6 +45,12 @@ def seed_classification():
     file = dir_path + "/static/seed2.json"
     return render_template('seed_classification.html', data=json.dumps(import_json(file)))
 
+# default route
+@app.route('/kegg_classification')
+def kegg_classification():
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    file = dir_path + "/static/kegg.json"
+    return render_template('kegg_classification.html', data=json.dumps(import_json(file)))
 
 
 if __name__ == '__main__':

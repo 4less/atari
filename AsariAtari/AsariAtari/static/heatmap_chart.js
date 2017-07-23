@@ -108,7 +108,9 @@ function Heatmap (myDivId, dataset) {
 		svg = d3.select(myDivId).append("svg");
 
 		// set svg dimensions
-		svg.attr("width", winWidth).attr("height", winHeight);
+		svg
+			.attr("width", winWidth).attr("height", winHeight)
+			.attr("align", "center");
 
 
 
@@ -314,6 +316,16 @@ function Heatmap (myDivId, dataset) {
 			    .attr("stroke", d3.rgb("#E6E6E6"));
 			readCount.text("");
 			pathText.text(pathString(pathText, stack.concat([parent]), heatmapWidth));
+		});
+
+		backButton.on("mouseover", function() {
+			backButton
+			   	.attr("stroke", "black");
+		});
+
+		backButton.on("mouseout", function() {
+			backButton
+			    .attr("stroke", d3.rgb("#E6E6E6"));
 		});
 
 		bob_rects.on("mouseover", function() {

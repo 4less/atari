@@ -19,10 +19,11 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="{{ url_for('taxanomy') }}">Taxonomy</a>
     <a href="{{ url_for('seed_classification') }}">SEED analysis</a>
+    <a href="{{ url_for('kegg_classification') }}">KEGG analysis</a>
 </div>
 
 <div>
-    <div id ="content"></div>
+    <div id ="content" width="100%"></div>
     {% block content %}
     {% endblock %}
 </div>
