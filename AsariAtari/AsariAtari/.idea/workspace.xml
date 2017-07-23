@@ -74,8 +74,8 @@
       <file leaf-file-name="heatmap_chart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/heatmap_chart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="602" column="1" lean-forward="true" selection-start-line="602" selection-start-column="1" selection-end-line="602" selection-end-column="1" />
+            <state relative-caret-position="143">
+              <caret line="82" column="32" lean-forward="false" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -84,8 +84,8 @@
       <file leaf-file-name="linechart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/linechart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1148">
-              <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+            <state relative-caret-position="2128">
+              <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -103,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>element_height</find>
       <find>element_height =</find>
       <find>chartHeight</find>
       <find>xlabel</find>
@@ -116,7 +115,6 @@
       <find>legend.</find>
       <find>fillHeatmap</find>
       <find>chartWidth =</find>
-      <find>chartWidth</find>
       <find>doSlider</find>
       <find>gridSize</find>
       <find>&quot;rect&quot;</find>
@@ -133,6 +131,8 @@
       <find>myChartHeight</find>
       <find>xScale</find>
       <find>getTimePoints</find>
+      <find>yScale</find>
+      <find>chartWidth</find>
     </findStrings>
     <replaceStrings>
       <replace>linechartColors</replace>
@@ -946,16 +946,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/linechart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
-          <caret line="41" column="8" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        <state relative-caret-position="2128">
+          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/heatmap_chart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="602" column="1" lean-forward="true" selection-start-line="602" selection-start-column="1" selection-end-line="602" selection-end-column="1" />
+        <state relative-caret-position="143">
+          <caret line="82" column="32" lean-forward="false" selection-start-line="82" selection-start-column="32" selection-end-line="82" selection-end-column="32" />
           <folding />
         </state>
       </provider>

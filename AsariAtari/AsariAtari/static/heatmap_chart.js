@@ -79,7 +79,8 @@ function Heatmap (myDivId, dataset) {
 		console.log(winHeight);
 
 		// calculate width and height of chart
-		chartWidth = 0.8 * winWidth;
+		chartWidth = 1 * winWidth;
+		console.log(chartWidth);
 		chartHeight = 0.486 * winHeight;
 
 		//ScalingTest

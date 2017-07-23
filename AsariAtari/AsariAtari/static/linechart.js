@@ -74,7 +74,7 @@ function linechart (svg, dataset, width, height, x, y) {
             var maximum = d3.max(data[1])
         }
 
-        var yScale = d3.scaleLinear()
+        yScale = d3.scaleLinear()
             .range([myChartHeight, 0])
             .domain([0, maximum]).nice();
 
