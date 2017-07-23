@@ -112,7 +112,7 @@ function linechart (svg, dataset, width, height, x, y) {
             .attr("class", "y label")
             .attr("text-anchor", "end")
             .attr("x", -myChartHeight / 2)
-            .attr("y", -5)
+            .attr("y", -6)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
             .text("number of reads")
