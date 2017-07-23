@@ -74,6 +74,9 @@ function Heatmap (myDivId, dataset) {
 		winWidth = window.screen.availWidth*0.9;
 		winHeight = window.screen.availHeight*0.9;
 
+		//winWidth = 1000;
+		//winHeight = 400;
+
 		console.log("##############################################################################");
 		console.log(winWidth);
 		console.log(winHeight);
@@ -82,9 +85,6 @@ function Heatmap (myDivId, dataset) {
 		chartWidth = 1 * winWidth;
 		console.log(chartWidth);
 		chartHeight = 0.486 * winHeight;
-
-		//ScalingTest
-		chartHeight = 510;
 
 		// calc heatmap width & height
 		heatmapWidth = chartWidth - margin.left - margin.right;
@@ -116,7 +116,7 @@ function Heatmap (myDivId, dataset) {
 
 		svg = d3.select(myDivId).append("svg");
 
-		/* show Frame
+		//show Frame
 		svg.append("rect")
             .attr("x", 0)
             .attr("y", 0)
@@ -125,7 +125,7 @@ function Heatmap (myDivId, dataset) {
             .attr("fill", "transparent")
             .attr("stroke-width", 5)
             .attr("stroke", "black");
-		show chart frame end */
+		//show chart frame end
 
 		// set svg dimensions
 		svg.attr("width", winWidth).attr("height", winHeight);
