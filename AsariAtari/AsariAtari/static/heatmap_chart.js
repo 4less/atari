@@ -23,7 +23,6 @@ function getTimePoints(dict, entry) {
 	subtree = get_data(dict[Object.keys(dict)[0]], entry);
 	alice = subtree['read_count'].slice(0, 6);
 	bob = subtree['read_count'].slice(6,12);
-	console.log([alice, bob]);
 	return [alice, bob];
 }
 
@@ -77,13 +76,8 @@ function Heatmap (myDivId, dataset) {
 		//winWidth = 1000;
 		//winHeight = 400;
 
-		console.log("##############################################################################");
-		console.log(winWidth);
-		console.log(winHeight);
-
 		// calculate width and height of chart
 		chartWidth = 1 * winWidth;
-		console.log(chartWidth);
 		chartHeight = 0.486 * winHeight;
 
 		// calc heatmap width & height
@@ -104,9 +98,6 @@ function Heatmap (myDivId, dataset) {
 		//bottom_margin
 
 
-
-		console.log("windowheight:  " + window.screen.availHeight);
-
 		parent = Object.keys(dataset)[0];
 
 		var array = get_arrays_for_entry(dataset, parent, 0);
@@ -115,17 +106,6 @@ function Heatmap (myDivId, dataset) {
 		x2 = array[2];
 
 		svg = d3.select(myDivId).append("svg");
-
-		//show Frame
-		svg.append("rect")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("width", winWidth)
-            .attr("height", winHeight)
-            .attr("fill", "transparent")
-            .attr("stroke-width", 5)
-            .attr("stroke", "black");
-		//show chart frame end
 
 		// set svg dimensions
 		svg.attr("width", winWidth).attr("height", winHeight);
@@ -183,11 +163,11 @@ function Heatmap (myDivId, dataset) {
             .style("class", "path");
 
 		backButton = chartGroup.append("rect")
-		    .attr("x", -(0.05 * heatmapWidth +  0.15 * 0.05 * heatmapWidth))
+		    .attr("x", -(0.5 * margin.left +  0.15 * 0.5 * margin.left))
 		    .attr("y", 0)
 		    .attr("rx", 6)
 		    .attr("ry", 6)
-		    .attr("width", 0.05 * heatmapWidth)
+		    .attr("width", 0.5 * margin.left)
 		    .attr("height", element_height*2 + 3*padding)
 		    .attr("fill", d3.rgb("#AAAAAA"));
 
@@ -210,7 +190,6 @@ function Heatmap (myDivId, dataset) {
 
 
 	    var ticks = [0,1,3,6,8,34];
-	    console.log(ticks);
     	doSlider(chartGroup, ticks, returnDictionary);
 
 
@@ -272,10 +251,8 @@ function Heatmap (myDivId, dataset) {
 				parent = clickedItem.data()[0][0];
 				pathText.text(pathString(pathText, stack.concat([parent]), heatmapWidth));
                 returnDictionary["update"](parent, index);
-                console.log(getTimePoints(dataset, parent));
-                linechartDictionary['update'](getTimePoints(dataset, parent));
-
             }
+			linechartDictionary['update'](getTimePoints(dataset, clickedItem.data()[0][0]));
 		});
 
         bob_rects.on("click", function() {
@@ -287,6 +264,7 @@ function Heatmap (myDivId, dataset) {
 				pathText.text(pathString(pathText, stack.concat([parent]), heatmapWidth));
                 returnDictionary["update"](parent, index);
             }
+            linechartDictionary['update'](getTimePoints(dataset, clickedItem.data()[0][0]));
 		});
 
 
@@ -295,7 +273,9 @@ function Heatmap (myDivId, dataset) {
 			pathText.text(pathString(pathText, stack, heatmapWidth));
 				parent = stack.pop();
 				returnDictionary["update"](parent, index);
+				linechartDictionary['update'](getTimePoints(dataset, parent));
 			}
+
 		});
 	};
 
@@ -325,10 +305,8 @@ function Heatmap (myDivId, dataset) {
 
 			clickedItem = d3.select(this);
 			var array = get_arrays_for_entry(dataset, clickedItem.data()[0][0], index);
-			if (array[0].length > 0) {
-				d3.select(this)
-			    	.attr("stroke", "black");
-            }
+			d3.select(this)
+			   	.attr("stroke", "black");
 		});
 
 		alice_rects.on("mouseout", function() {
@@ -344,10 +322,8 @@ function Heatmap (myDivId, dataset) {
 
 			clickedItem = d3.select(this);
 			var array = get_arrays_for_entry(dataset, clickedItem.data()[0][0], index);
-			if (array[0].length > 0) {
-				d3.select(this)
-			    	.attr("stroke", "black");
-            }
+			d3.select(this)
+			   	.attr("stroke", "black");
 		});
 
 		bob_rects.on("mouseout", function() {
@@ -469,14 +445,11 @@ function doSlider(svg, ticks, returnDictionary) {
 }
 
 function fillHeatmap(chartGroup, data, categoryColors, colorScale) {
-	console.log("before filter: " + data.length);
 	var rectGroup = chartGroup.selectAll(".rect")
 		.data(data.filter(function(d) {
 			return d[1] != 0 || d[2] != 0;
 		}))
 		.enter();
-
-	console.log("after filter: " + rectGroup.data().length);
 
 
 	gridSize = heatmapWidth / rectGroup.data().length;
