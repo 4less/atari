@@ -170,27 +170,15 @@ function linechart (svg, dataset, width, height, x, y) {
                 .attr("id", "circle" + names[index])
                 .attr("class", "circle") // Assign a class for styling
                 .attr("cx", function (d, i) {
-                    return xScale(i) + margin.left;
+                    return xScale(i);
                 })
                 .attr("cy", function (d) {
-                    return yScale(d) + margin.top;
+                    return yScale(d);
                 })
                 .attr("r", 5)
                 .style("fill", colors[index]);
         }
         ;
-
-        //draw line
-        svg.append("svg:line")
-            .attr("id", "selected")
-            .attr("class", "line")
-            .attr("x1", xScale(0) + margin.left)
-            .attr("y1", margin.top)
-            .attr("x2", xScale(0) + margin.left)
-            .attr("y2", myChartHeight + margin.top)
-            .style("stroke-width", 5)
-            .style("stroke", "mediumspringgreen")
-            .style("stroke-dasharray", ("6, 6"));
 
         //get all circles
         var circle = d3.selectAll("circle");
