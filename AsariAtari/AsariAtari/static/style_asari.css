@@ -102,15 +102,13 @@ ul {
 }
 
 .button_base {
-    float: right;
     margin: 0;
     border: 0;
     font-size: 18px;
     position: relative;
     top: 50%;
-    left: 50%;
     margin-top: 1em;
-    margin-left: 1em;
+    margin-left: 8em;
     width: 120px;
     height: 40px;
     text-align: center;
@@ -331,4 +329,6 @@ h4 {
 
 .buttonContainer {
   display: flex;
+  width: 50%;
+  margin: auto;
 }
