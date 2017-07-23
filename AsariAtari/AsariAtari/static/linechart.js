@@ -97,7 +97,7 @@ function linechart (svg, dataset, width, height, x, y) {
         panel.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
-            .attr("x", mySvgWidth / 2 + margin.left + margin.right)
+            .attr("x", mySvgWidth / 2)
             .attr("y", myChartHeight + 30)
             .text("time points of measuring")
             .style("font-size", "13px")
