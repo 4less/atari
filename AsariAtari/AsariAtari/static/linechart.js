@@ -6,9 +6,6 @@ function get_arrays_for_time_series(dict, entry) {
             bob.push(subtree['read_count'][6 + a]);
         }
 
-        console.log(alice);
-        console.log(bob);
-
         return [alice, bob];
     }
 
@@ -56,9 +53,8 @@ function linechart (svg, dataset, width, height, x, y) {
         var xAxis = d3.axisBottom(xScale)
             .tickValues(time_points)
             .tickFormat(function (d, i) {
-                return time_stands[i]
+                return time_stands[i];
             });
-        ;
 
         panel.append("g")
             .attr("class", "x axis")
@@ -69,9 +65,9 @@ function linechart (svg, dataset, width, height, x, y) {
 
         //get highest value of the data
         if (d3.max(data[0]) > d3.max(data[1])) {
-            var maximum = d3.max(data[0])
+            var maximum = d3.max(data[0]);
         } else {
-            var maximum = d3.max(data[1])
+            var maximum = d3.max(data[1]);
         }
 
         yScale = d3.scaleLinear()
@@ -146,7 +142,7 @@ function linechart (svg, dataset, width, height, x, y) {
                 .datum(arr[index]) // 10. Binds data to the line
                 .attr("class", "line") // Assign a class for styling
                 .attr("d", line) // 11. Calls the line generator
-                .attr("stroke", linechartColors[index])
+                .attr("stroke", linechartColors[index]);
 
             var bubble = panel.selectAll("#linechart")
                 .data(data[index])
@@ -178,7 +174,6 @@ function linechart (svg, dataset, width, height, x, y) {
                 .attr("r", 5)
                 .style("fill", linechartColors[index]);
         }
-        ;
 
         //get all circles
         var circle = d3.selectAll("circle");
@@ -280,4 +275,3 @@ function linechart (svg, dataset, width, height, x, y) {
 
     return returnDictionary;
 }
-

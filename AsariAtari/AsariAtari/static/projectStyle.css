@@ -19,13 +19,6 @@
     flex: 4;
     min-height: 80vh;
 }
-header, footer {
-    background: cornflowerblue;
-    height: 10vh;
-}
-header, footer, article, nav {
-    padding: 1em;
-}
 
 h1 {
     font-family: Arial, Helvetica;
@@ -60,11 +53,6 @@ p {
     margin-left: 40px;
 }
 
-div {
-    font-family: Arial, Helvetica;
-    font-size: 1em;
-    margin-left: 40px;
-}
 
 label {
     color: white;
