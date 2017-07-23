@@ -1,28 +1,5 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='styler.css') }}">
-<style>
-  text.path {
-    font-size: 20pt;
-    font-family: Consolas, courier;
-    fill: #333;
-  }
-
-  text.mono {
-    /*font-size: 9pt;*/
-    font-family: Consolas, courier;
-    fill: #555;
-  }
-
-  text.axis-workweek {
-    fill: #000;
-  }
-
-  text.axis-worktime {
-    fill: #000;
-  }
-</style>
-
 
 {% extends "index.html" %}
 {% block content %}
@@ -95,8 +72,6 @@
 	var dataset = {{ data | safe }};
 	var width = 1900;
 	var height = 700;
-
-	console.log(dataset)
 
 	bubbleChart = Heatmap("#content", dataset);
 	bubbleChart.init();
