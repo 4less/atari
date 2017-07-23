@@ -12,6 +12,16 @@ function get_arrays_for_time_series(dict, entry) {
         return [alice, bob];
     }
 
+// d3's line generator
+        line = d3.line()
+            .x(function (d) {
+                return xScale(d.time_point);
+            }) // set the x values for the line generator
+            .y(function (d) {
+                return yScale(d.value);
+            }); // set the y values for the line generator
+        //.curve(d3.curveMonotoneX) // apply smoothing to the line
+
 function linechart (svg, dataset, width, height, x, y) {
 
     var returnDictionary = {};
@@ -77,16 +87,6 @@ function linechart (svg, dataset, width, height, x, y) {
             .selectAll("text")
             .attr('dx', '-.5em');
 
-        // d3's line generator
-        line = d3.line()
-            .x(function (d) {
-                return xScale(d.time_point);
-            }) // set the x values for the line generator
-            .y(function (d) {
-                return yScale(d.value);
-            }); // set the y values for the line generator
-        //.curve(d3.curveMonotoneX) // apply smoothing to the line
-
         // create dict for Alice and Bob line
         var arr_1 = [];
         var arr_2 = [];
@@ -108,7 +108,7 @@ function linechart (svg, dataset, width, height, x, y) {
             .style("font-weight", "bold");
 
         //y axis
-        svg.append("text")
+        panel.append("text")
             .attr("class", "y label")
             .attr("text-anchor", "end")
             .attr("x", -myChartHeight / 2)
@@ -153,13 +153,13 @@ function linechart (svg, dataset, width, height, x, y) {
                 .enter();
 
             panel.append("text")
-                .attr("x", 800 - myChartWidth - 30)
+                .attr("x", width - 30)
                 .attr("y", margin.top + 8 + 20 * index)
                 .attr("dy", ".35em")
                 .text(names[index]);
 
             panel.append("rect")
-                .attr("x", 800 - myChartWidth - 50)
+                .attr("x", width - 50)
                 .attr("y", margin.top + 20 * index)
                 .attr("width", 18)
                 .attr("height", 18)
