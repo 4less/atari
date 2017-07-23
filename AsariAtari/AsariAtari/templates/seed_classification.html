@@ -28,7 +28,7 @@
 {% block content %}
 
 <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-<script src="{{ url_for('static', filename='bubblechart2.js') }}"></script>
+<script src="{{ url_for('static', filename='heatmap_chart.js') }}"></script>
 <!-- <input type="button" id="aliceButton" value="Alice">
 <input type="button" id="bobButton" value="Bob"> -->
 
@@ -96,11 +96,10 @@
 	var width = 1900;
 	var height = 700;
 
-	console.log(dataset)
 
-	bubbleChart = Heatmap("#content", dataset);
-	bubbleChart.init();
-	bubbleChart.doOnMouseOver();
-	bubbleChart.doWhenClicked();
+	heatmap = Heatmap("#content", dataset);
+	heatmap.init();
+	heatmap.doOnMouseOver();
+	heatmap.doWhenClicked();
 </script>
 {% endblock %}
