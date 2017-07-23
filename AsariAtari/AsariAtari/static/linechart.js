@@ -14,7 +14,7 @@ function get_arrays_for_time_series(dict, entry) {
 
 function linechart (myDivId, dataset){
 	
-	var returnDictionary = {};
+	var returnDictionary = {} ;
 	
     var data = get_arrays_for_time_series(dataset, "root");
 
