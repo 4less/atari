@@ -1,22 +1,22 @@
-var test = [4748.0, 2310.0, 4862.0, 2293.0, 5164.0, 2365.0, 4239.0, 2260.0, 3643.0, 4439.0, 5313.0, 5057.0];
+function get_arrays_for_time_series(dict, entry) {
+        subtree = get_data(dict[Object.keys(dataset)[0]], entry);
+        var alice = [], bob = [];
+        for (var a = 0; a < 6; a++) {
+            alice.push(subtree['read_count'][a]);
+            bob.push(subtree['read_count'][6 + a]);
+        }
 
+        console.log(alice);
+        console.log(bob);
 
-function div_ali_bob(listi){
-	
-	//put alice and bob in the correct order
-	var alice = [];
-	var bob = [];
-	alice.push(listi[1], listi[3], listi[7], listi[0], listi[10], listi[5]);
-	bob.push(listi[4], listi[6], listi[2], listi[8], listi[9], listi[11]);
-	
-	//put both lists together and let them print
-	var together = [];
-	together.push(alice, bob);
-	
-	return together;
-}
+        return [alice, bob];
+    }
 
-   var data = div_ali_bob(test);
+function linechart (myDivId, dataset){
+	
+	var returnDictionary = {};
+	
+    var data = get_arrays_for_time_series(dataset, "root");
 
 
 	//choose a svg postion and align it
@@ -31,7 +31,9 @@ function div_ali_bob(listi){
 	//get time points
 	var time_points = [0, 1, 2, 3, 4, 5];
 	var time_stands = ["0", "1", "3", "6", "8", "34"];
-
+	
+	
+	returnDictionary["init"] = function(){
 
 	//frame the marginBar
 	var mySvgWidth = 700;
@@ -230,11 +232,12 @@ function div_ali_bob(listi){
         updateBars(dayLabel);
         change_color();
     });
+	}
 
 	//update
-function update_line(listi) {
+	returnDictionary["update"] = function(entry){ {
 
-	var data = div_ali_bob(listi);
+	var data = get_arrays_for_time_series(dataset, entry);
 
 	//get highest value of the data
 	if (d3.max(data[0]) > d3.max(data[1])){
@@ -287,33 +290,6 @@ function update_line(listi) {
 				.style("fill", colors[index]);
 	};
 
-    d3.selectAll("circle").on('click',	function(){
-		var coords = Math.round(xScale.invert(d3.mouse(this)[0]));
-		d3.select("#selected")
-			.attr("x1", xScale(coords) + margin.left)
-            .attr("x2", xScale(coords) + margin.left);
-
-        console.log(coords);
-        if (coords == 2) {
-            dayLabel = 3;
-        }
-        else if (coords == 3) {
-            dayLabel = 6;
-        }
-        else if (coords == 4) {
-            dayLabel = 8;
-        }
-        else if (coords == 5) {
-            dayLabel = 34;
-        }
-        else {
-            dayLabel = coords;
-        }
-        document.getElementById('time-point').innerHTML = dayLabel;
-
-        updateBars(dayLabel);
-    });
-
     //get all circles
 	var circle = d3.selectAll("circle");
 
@@ -329,8 +305,6 @@ function update_line(listi) {
 			.duration(500)
             .attr("r", 5);
     });
-
-
+	}
 }
-
 
