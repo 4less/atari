@@ -16,7 +16,7 @@ function linechart (svg, dataset, width, height, x, y) {
 
     var returnDictionary = {};
 
-    var data = get_arrays_for_time_series(dataset, "root");
+    var data = [[12,23,24,12,23,12],[23,24,35,23,1,2]];
 
 
 

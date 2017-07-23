@@ -58,6 +58,7 @@ function get_arrays_for_entry(dict, entry, index, node_only) {
 function Heatmap (myDivId, dataset) {
 	var returnDictionary = {};
 
+	var linechartDictionary;
 
 	// set the margins for the actual charts
 	margin = { top: 200, right: 100, bottom: 100, left: 100 };
@@ -113,25 +114,25 @@ function Heatmap (myDivId, dataset) {
 
 		svg = d3.select(myDivId).append("svg");
 
-		/* show Frame */
+		/* show Frame
 		svg.append("rect")
             .attr("x", 0)
             .attr("y", 0)
-            .attr("width", chartWidth)
-            .attr("height", 510)
+            .attr("width", winWidth)
+            .attr("height", winHeight)
             .attr("fill", "transparent")
             .attr("stroke-width", 5)
             .attr("stroke", "black");
-		/* show chart frame end */
-
-		console.log("width: " + width);
-		console.log("height: " + height);
-
-		console.log("width and height");
-		console.log("##########################################################################");
+		show chart frame end */
 
 		// set svg dimensions
-		svg.attr("width", width).attr("height", height);
+		svg.attr("width", winWidth).attr("height", winHeight);
+
+
+
+		/* INIT LINECHART */
+		linechartDictionary = linechart(svg, dataset, chartWidth,chartHeight, 0, chartHeight);
+		linechartDictionary['init']();
 
 		var data = d3.zip(categories, x1, x2);
 
@@ -165,7 +166,6 @@ function Heatmap (myDivId, dataset) {
 		// move chartgroup to its position in the svg.
 		chartGroup.attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
 
-		realHeight = height;
 		rectGroup = fillHeatmap(chartGroup, data, colors, colorScale);
 
         var aliceLabel = chartGroup.append("text")
@@ -464,9 +464,6 @@ function doSlider(svg, ticks, returnDictionary) {
 }
 
 function fillHeatmap(chartGroup, data, categoryColors, colorScale) {
-	height = realHeight;
-	console.log("height while fillHeatmap: " + height);
-
 	console.log("before filter: " + data.length);
 	var rectGroup = chartGroup.selectAll(".rect")
 		.data(data.filter(function(d) {
